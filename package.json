@@ -1,0 +1,29 @@
+{
+  "name": "book-talk",
+  "version": "1.0.0",
+  "description": "Multi page application via Express js and MongoDB. App where you can post and read about books.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MartoIT/Book-Talk.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MartoIT/Book-Talk/issues"
+  },
+  "homepage": "https://github.com/MartoIT/Book-Talk#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cookie-parser": "^1.4.6",
+    "express": "^4.18.2",
+    "express-handlebars": "^6.0.7",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^6.9.2",
+    "nodemon": "^2.0.20"
+  }
+}
