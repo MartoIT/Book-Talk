@@ -4,10 +4,21 @@ exports.getLoginPage = (req, res) => {
     res.render('auth/login')
 };
 
-exports.postLoginPage = (req, res) => {
+exports.postLoginPage = async (req, res) => {
+    const { email, password } = req.body;
 
+   
+    try{
+        const token = await authService.postloginUser(email, password);
+        res.cookie('auth', token, { httpOnly: true });
 
-    res.render('auth/login')
+        res.redirect('/');
+
+    }catch(error){
+        console.log(error)
+    }
+
+   
 };
 
 exports.getRegisterPage = (req, res) => {
