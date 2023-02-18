@@ -1,4 +1,5 @@
 const authService = require('../services/authService');
+const getError = require('../utils/errorUtils');
 
 exports.getLoginPage = (req, res) => {
     res.render('auth/login')
@@ -15,7 +16,7 @@ exports.postLoginPage = async (req, res) => {
         res.redirect('/');
 
     }catch(error){
-        console.log(error)
+          res.status(404).render('auth/login', { error: getError.getErrorMessage(error) })
     }
 
    
