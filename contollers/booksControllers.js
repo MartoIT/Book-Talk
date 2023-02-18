@@ -61,3 +61,11 @@ exports.delete = async (req, res) => {
     res.redirect('/catalog');
 
 }
+
+
+
+exports.getEditPage = async (req, res) => {
+    const book = await bookService.getOne(req.params.bookId);
+    
+    res.render('edit', {book});
+};
