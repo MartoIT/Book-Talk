@@ -43,3 +43,8 @@ exports.postRegisterPage = async (req, res) => {
 
 
 };
+
+exports.logout = (req, res) => {
+    res.clearCookie('auth');
+    res.redirect('/');
+}
