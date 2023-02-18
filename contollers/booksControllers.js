@@ -82,3 +82,14 @@ exports.postEditPage = async (req, res) => {
     res.render(`details`, { book, isOwner, iswished })
     
 }
+
+
+exports.getProfilePage = async (req, res) => {
+    const token = req.cookies['auth'];
+    const decodedToken = await jwt.verify(token, 'secret');
+    const userId = decodedToken._id;
+    const userData = await bookService.search(userId);
+    
+    console.log(userData[0].wishingList)
+    res.render('profile');
+}
