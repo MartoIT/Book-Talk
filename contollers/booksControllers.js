@@ -1,16 +1,15 @@
+
 const getError = require('../utils/errorUtils');
 const bookService = require('../services/booksService')
 
 
 exports.getCatalogPage = async (req, res) => {
-
-    // const cryptoOffers = await Crypto.find().lean()
-    res.render('catalog');
+    const allBooks = await bookService.getAll();
+    
+    res.render('catalog', { allBooks });
 };
 
 exports.getCreategPage = async (req, res) => {
-
-    // const cryptoOffers = await Crypto.find().lean()
     res.render('create');
 };
 
