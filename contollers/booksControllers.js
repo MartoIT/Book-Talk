@@ -69,3 +69,16 @@ exports.getEditPage = async (req, res) => {
     
     res.render('edit', {book});
 };
+
+exports.postEditPage = async (req, res) => {
+    const id = req.params.bookId;
+    const data = req.body;
+    
+    await bookService.edit(id, data);
+    
+    const book = await bookService.getOne(id);
+    const isOwner = book.owner == req.user?._id;
+    const iswished = book.wishingList?.some(id => id == req.user._id);
+    res.render(`details`, { book, isOwner, iswished })
+    
+}

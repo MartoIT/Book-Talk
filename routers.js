@@ -18,6 +18,7 @@ router.get('/catalog/:bookId/details', booksController.getDetails);
 router.get('/catalog/wish/:bookId', booksController.postAddToWishList);
 
 router.get('/books/:bookId/edit', booksController.getEditPage);
+router.post('/books/:bookId/edit', booksController.postEditPage);
 
 router.get('/delete/:bookId', booksController.delete);
 router.get('*', authController.get404);

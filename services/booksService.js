@@ -22,7 +22,11 @@ exports.wishToRead = async (wisherId, bookId) => {
 }
 
 exports.delete = async (bookId) => {
-    
+
     await Book.findByIdAndDelete(bookId);
     
+}
+
+exports.edit = async (id, data) => {
+    await Book.findByIdAndUpdate(id, data);
 }
