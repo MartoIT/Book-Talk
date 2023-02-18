@@ -47,3 +47,17 @@ exports.postAddToWishList = async (req, res) => {
 
     res.redirect('/catalog')
 }
+
+
+exports.delete = async (req, res) => {
+    const bookId = req.params.bookId;
+    const book = await bookService.getOne(bookId);
+    const isOwner = book.owner == req.user?._id;
+    if (!isOwner) {
+        throw Error `You are not the owner of the book!!!`
+    }
+
+    await bookService.delete(bookId);
+    res.redirect('/catalog');
+
+}

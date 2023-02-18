@@ -17,4 +17,6 @@ router.post('/create', booksController.postCreateReview);
 router.get('/catalog/:bookId/details', booksController.getDetails);
 router.get('/catalog/wish/:bookId', booksController.postAddToWishList);
 
+router.get('/delete/:bookId', booksController.delete);
+
 module.exports = router;
