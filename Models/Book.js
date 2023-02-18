@@ -1,6 +1,6 @@
-const mogoose = require('mongoose');
+const mongoose = require('mongoose');
 
-const bookSchema = new mogoose.Schema({
+const bookSchema = new mongoose.Schema({
     title:{
         type: String,
         required: true,
@@ -27,13 +27,17 @@ const bookSchema = new mogoose.Schema({
         require: true,
     },
     wishingList:{
-        type: mogoose.Types.ObjectId,
+        type: mongoose.Types.ObjectId,
         ref: 'User'
     },
     owner:{
-        type: mogoose.Types.ObjectId,
+        type: mongoose.Types.ObjectId,
         ref: 'User',
     },
 })
+
+
+const Book = mongoose.model('Book', bookSchema);
+module.exports = Book;
 
 

@@ -13,5 +13,6 @@ router.get('/logout', authController.logout);
 router.get('/catalog', booksController.getCatalogPage);
 
 router.get('/create', booksController.getCreategPage);
+router.post('/create', booksController.postCreateReview);
 
 module.exports = router;
