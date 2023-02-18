@@ -1,7 +1,7 @@
 
 const getError = require('../utils/errorUtils');
 const bookService = require('../services/booksService')
-
+const jwt = require('../lib/jwt');
 
 exports.getCatalogPage = async (req, res) => {
     const allBooks = await bookService.getAll();
@@ -36,3 +36,14 @@ exports.postCreateReview = async (req, res) => {
 
 }
 
+
+exports.postAddToWishList = async (req, res) => {
+
+    const bookId = req.params.bookId;
+    const token = req.cookies['auth'];
+    const decodedToken = await jwt.verify(token, 'secret');
+    const wisherId = decodedToken._id;
+    await bookService.wishToRead(wisherId, bookId)
+
+    res.redirect('/catalog')
+}

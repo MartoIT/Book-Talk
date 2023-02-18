@@ -26,10 +26,10 @@ const bookSchema = new mongoose.Schema({
         type: Number,
         require: true,
     },
-    wishingList:{
+    wishingList:[{
         type: mongoose.Types.ObjectId,
         ref: 'User'
-    },
+    }],
     owner:{
         type: mongoose.Types.ObjectId,
         ref: 'User',
