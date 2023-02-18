@@ -7,4 +7,9 @@ exports.createBookReview = async (title, author, genre, stars, image, review, ow
 
 exports.getAll = async () => {
     return await Book.find().lean();
-} 
+};
+
+exports.getOne = async (id) => {
+    const bookData = await Book.findById(id).lean();
+    return bookData;
+}

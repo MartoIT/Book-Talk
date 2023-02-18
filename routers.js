@@ -14,5 +14,6 @@ router.get('/catalog', booksController.getCatalogPage);
 
 router.get('/create', booksController.getCreategPage);
 router.post('/create', booksController.postCreateReview);
+router.get('/catalog/:bookId/details', booksController.getDetails)
 
 module.exports = router;

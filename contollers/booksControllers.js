@@ -5,9 +5,16 @@ const bookService = require('../services/booksService')
 
 exports.getCatalogPage = async (req, res) => {
     const allBooks = await bookService.getAll();
-    
+
     res.render('catalog', { allBooks });
 };
+
+exports.getDetails = async (req, res) => {
+
+    const book = await bookService.getOne(req.params.bookId);
+
+    res.render(`details`, { book })
+}
 
 exports.getCreategPage = async (req, res) => {
     res.render('create');
