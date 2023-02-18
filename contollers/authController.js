@@ -48,3 +48,7 @@ exports.logout = (req, res) => {
     res.clearCookie('auth');
     res.redirect('/');
 }
+
+exports.get404 =  (req, res) => {
+    res.render('404');
+}

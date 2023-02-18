@@ -18,5 +18,6 @@ router.get('/catalog/:bookId/details', booksController.getDetails);
 router.get('/catalog/wish/:bookId', booksController.postAddToWishList);
 
 router.get('/delete/:bookId', booksController.delete);
+router.get('*', authController.get404)
 
 module.exports = router;
