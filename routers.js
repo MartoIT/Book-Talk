@@ -12,4 +12,6 @@ router.get('/logout', authController.logout);
 
 router.get('/catalog', booksController.getCatalogPage);
 
+router.get('/create', booksController.getCreategPage);
+
 module.exports = router;
